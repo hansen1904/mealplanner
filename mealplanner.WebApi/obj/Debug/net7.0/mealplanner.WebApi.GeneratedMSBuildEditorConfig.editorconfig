@@ -15,3 +15,11 @@ build_property.SupportLocalizedComponentNames =
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
 build_property.MSBuildProjectDirectory = C:\Users\hanse\source\repos\mealplanner\mealplanner.WebApi
 build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/hanse/source/repos/mealplanner/mealplanner.WebApi/Pages/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hanse/source/repos/mealplanner/mealplanner.WebApi/Pages/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
