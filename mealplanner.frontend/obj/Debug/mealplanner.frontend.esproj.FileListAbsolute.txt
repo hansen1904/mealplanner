@@ -1,0 +1,2 @@
+C:\Users\hanse\source\repos\mealplanner\mealplanner.Frontend\obj\Debug\mealplanner.frontend.esproj.SuggestedBindingRedirects.cache
+C:\Users\hanse\source\repos\mealplanner\mealplanner.Frontend\obj\Debug\mealplanner.frontend.esproj.CoreCompileInputs.cache
