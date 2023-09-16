@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "1I7/EF+aNZ50e8fNLYFf7V9LIQ0Xzp+wFyxbfmNSoEK9H/N7vmgR7VSI7bdwatWeHqMoSL3t3O7UvjcQxQ1fkQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\hanse\\source\\repos\\mealplanner\\mealplanner.domain\\mealplanner.Domain.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\hanse\\.nuget\\packages\\fluentvalidation\\11.7.1\\fluentvalidation.11.7.1.nupkg.sha512"
+  ],
+  "logs": []
+}

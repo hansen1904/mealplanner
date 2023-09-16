@@ -1,4 +1,6 @@
 
+using Microsoft.AspNetCore.Identity;
+
 namespace mealplanner.WebApi
 {
     public class Program
@@ -23,7 +25,6 @@ namespace mealplanner.WebApi
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseRouting();
-
 
             app.MapControllerRoute(
                 name: "default",
