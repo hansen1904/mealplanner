@@ -3,11 +3,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33627.172
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "mealplanner.WebApi", "mealplanner.WebApi\mealplanner.WebApi.csproj", "{4976AA7F-6E49-4E50-A9A4-285AAC7D74B9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "mealplanner.Domain", "mealplanner.domain\mealplanner.Domain.csproj", "{45F2AA4F-15F7-401A-82D7-1303CD97297B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mealplanner.Domain", "mealplanner.domain\mealplanner.Domain.csproj", "{45F2AA4F-15F7-401A-82D7-1303CD97297B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "mealplanner.Test", "mealplanner.Test\mealplanner.Test.csproj", "{D0BB091E-265C-4570-98D6-494D7CD6DDE9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mealplanner.Test", "mealplanner.Test\mealplanner.Test.csproj", "{D0BB091E-265C-4570-98D6-494D7CD6DDE9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mealplanner.WebApi", "mealplanner.WebApi\mealplanner.WebApi.csproj", "{383DC200-C039-4F8C-ACA5-34C1D3D31BDD}"
+	ProjectSection(ProjectDependencies) = postProject
+		{45F2AA4F-15F7-401A-82D7-1303CD97297B} = {45F2AA4F-15F7-401A-82D7-1303CD97297B}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,10 +18,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{4976AA7F-6E49-4E50-A9A4-285AAC7D74B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4976AA7F-6E49-4E50-A9A4-285AAC7D74B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4976AA7F-6E49-4E50-A9A4-285AAC7D74B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4976AA7F-6E49-4E50-A9A4-285AAC7D74B9}.Release|Any CPU.Build.0 = Release|Any CPU
 		{45F2AA4F-15F7-401A-82D7-1303CD97297B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{45F2AA4F-15F7-401A-82D7-1303CD97297B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{45F2AA4F-15F7-401A-82D7-1303CD97297B}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -27,6 +26,10 @@ Global
 		{D0BB091E-265C-4570-98D6-494D7CD6DDE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D0BB091E-265C-4570-98D6-494D7CD6DDE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D0BB091E-265C-4570-98D6-494D7CD6DDE9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{383DC200-C039-4F8C-ACA5-34C1D3D31BDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{383DC200-C039-4F8C-ACA5-34C1D3D31BDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{383DC200-C039-4F8C-ACA5-34C1D3D31BDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{383DC200-C039-4F8C-ACA5-34C1D3D31BDD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

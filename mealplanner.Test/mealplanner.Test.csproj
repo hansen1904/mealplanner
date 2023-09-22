@@ -10,6 +10,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Integration\**" />
+    <Compile Remove="Unit\**" />
+    <EmbeddedResource Remove="Integration\**" />
+    <EmbeddedResource Remove="Unit\**" />
+    <None Remove="Integration\**" />
+    <None Remove="Unit\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="AutoFixture" Version="4.18.0" />
     <PackageReference Include="FluentAssertions" Version="6.12.0" />
     <PackageReference Include="FluentAssertions.Analyzers" Version="0.24.0">
@@ -27,11 +36,6 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Integration\" />
-    <Folder Include="Unit\" />
   </ItemGroup>
 
   <ItemGroup>

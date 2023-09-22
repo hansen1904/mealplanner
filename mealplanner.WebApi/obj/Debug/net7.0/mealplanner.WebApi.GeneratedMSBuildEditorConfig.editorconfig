@@ -9,17 +9,17 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = mealplanner.WebApi
 build_property.RootNamespace = mealplanner.WebApi
-build_property.ProjectDir = c:\Users\hanse\source\repos\mealplanner\mealplanner.WebApi\
+build_property.ProjectDir = C:\Users\hanse\source\repos\mealplanner\mealplanner.WebApi\
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = c:\Users\hanse\source\repos\mealplanner\mealplanner.WebApi
+build_property.MSBuildProjectDirectory = C:\Users\hanse\source\repos\mealplanner\mealplanner.WebApi
 build_property._RazorSourceGeneratorDebug = 
 
-[c:/Users/hanse/source/repos/mealplanner/mealplanner.WebApi/Pages/Error.cshtml]
+[C:/Users/hanse/source/repos/mealplanner/mealplanner.WebApi/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/hanse/source/repos/mealplanner/mealplanner.WebApi/Pages/_ViewImports.cshtml]
+[C:/Users/hanse/source/repos/mealplanner/mealplanner.WebApi/Pages/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
