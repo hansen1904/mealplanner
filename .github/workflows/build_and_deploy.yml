@@ -1,29 +1,19 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
-name: Linter, Build and deploy
+name: Build and deploy
 
-on: push
+on:
+  workflow_run:
+    workflows: ["Linter and test"]
+    branches: [main]
+    types: 
+      - completed
 
 jobs:
-  linter:
-    name: Lint code base
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Run Linter
-        uses: super-linter/super-linter@v5
-        env:
-          VALIDATE_ALL_CODEBASE: false
-          DEFAULT_BRANCH: main
-          GITHUB_TOKEN: ${{ secrets.PAT }}
-          VALIDATE_MARKDOWN: false
 
   build:
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
     steps:
       - uses: actions/checkout@v2
 
