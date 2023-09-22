@@ -30,3 +30,5 @@ C:\Users\hanse\source\repos\mealplanner\mealplanner.WebApi\obj\Debug\net7.0\refi
 C:\Users\hanse\source\repos\mealplanner\mealplanner.WebApi\obj\Debug\net7.0\mealplanner.WebApi.pdb
 C:\Users\hanse\source\repos\mealplanner\mealplanner.WebApi\obj\Debug\net7.0\mealplanner.WebApi.genruntimeconfig.cache
 C:\Users\hanse\source\repos\mealplanner\mealplanner.WebApi\obj\Debug\net7.0\ref\mealplanner.WebApi.dll
+C:\Users\hanse\source\repos\mealplanner\mealplanner.WebApi\bin\Debug\net7.0\package-lock.json
+C:\Users\hanse\source\repos\mealplanner\mealplanner.WebApi\bin\Debug\net7.0\package.json
