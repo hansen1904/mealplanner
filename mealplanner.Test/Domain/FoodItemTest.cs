@@ -1,6 +1,6 @@
 ﻿using FluentAssertions;
 using AutoFixture;
-using mealplanner.Domain.ValueObjects;
+using mealplanner.Domain.Entities;
 using mealplanner.Domain.Enums;
 
 namespace mealplanner.Test.Domain
