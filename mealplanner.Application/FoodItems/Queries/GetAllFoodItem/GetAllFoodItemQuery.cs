@@ -1,4 +1,5 @@
-﻿using mealplanner.Application.FoodItems.Queries.GetFoodItemById;
+﻿using mealplanner.Application.Common.Errors;
+using mealplanner.Application.FoodItems.Queries.GetFoodItemById;
 using mealplanner.Domain.Entities;
 using MediatR;
 
@@ -17,7 +18,7 @@ namespace mealplanner.Application.FoodItems.Queries.GetAllFoodItem
 
         public Task<RecievedListOfAllFoodItemDto> Handle(GetAllFoodItemQuery request, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            throw Errors.FoodItem.NotFound;
         }
 
         private static RecievedListOfAllFoodItemDto MapToDto(List<FoodItem> listOfFoodItems)

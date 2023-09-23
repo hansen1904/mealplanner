@@ -1,4 +1,3 @@
-
 using mealplanner.Application;
 
 namespace mealplanner.WebApi
@@ -62,7 +61,7 @@ namespace mealplanner.WebApi
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseRouting();
-
+            app.UseExceptionHandler("/error");
 
             app.MapControllerRoute(
                 name: "default",
