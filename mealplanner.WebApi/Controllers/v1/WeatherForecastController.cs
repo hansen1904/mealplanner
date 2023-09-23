@@ -1,15 +1,13 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace mealplanner.WebApi.Controllers
+namespace mealplanner.WebApi.Controllers.v1
 {
-    [ApiController]
-    [Route("[controller]")]
-    public class WeatherForecastController : ControllerBase
+    public class WeatherForecastController : ApiControllerBase
     {
         private static readonly string[] Summaries = new[]
         {
         "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-    };
+        };
 
         private readonly ILogger<WeatherForecastController> _logger;
 

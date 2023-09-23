@@ -1,10 +1,11 @@
 ﻿using FluentValidation;
+using mealplanner.Domain.Base;
 using mealplanner.Domain.Enums;
 using mealplanner.Domain.Validators;
 
-namespace mealplanner.Domain.ValueObjects
+namespace mealplanner.Domain.Entities
 {
-    public class FoodItem
+    public class FoodItem : AuditableEntity
     {
         public string Name { get; private set; }
         public string Brand { get; private set; }

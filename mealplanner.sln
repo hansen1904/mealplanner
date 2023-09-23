@@ -7,10 +7,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "mealplanner.Domain", "mealp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "mealplanner.Test", "mealplanner.Test\mealplanner.Test.csproj", "{D0BB091E-265C-4570-98D6-494D7CD6DDE9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mealplanner.WebApi", "mealplanner.WebApi\mealplanner.WebApi.csproj", "{383DC200-C039-4F8C-ACA5-34C1D3D31BDD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "mealplanner.WebApi", "mealplanner.WebApi\mealplanner.WebApi.csproj", "{383DC200-C039-4F8C-ACA5-34C1D3D31BDD}"
 	ProjectSection(ProjectDependencies) = postProject
 		{45F2AA4F-15F7-401A-82D7-1303CD97297B} = {45F2AA4F-15F7-401A-82D7-1303CD97297B}
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mealplanner.Application", "mealplanner.Application\mealplanner.Application.csproj", "{2950991C-5C0C-468D-AAD7-43A3136AA7F9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -30,6 +32,10 @@ Global
 		{383DC200-C039-4F8C-ACA5-34C1D3D31BDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{383DC200-C039-4F8C-ACA5-34C1D3D31BDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{383DC200-C039-4F8C-ACA5-34C1D3D31BDD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2950991C-5C0C-468D-AAD7-43A3136AA7F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2950991C-5C0C-468D-AAD7-43A3136AA7F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2950991C-5C0C-468D-AAD7-43A3136AA7F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2950991C-5C0C-468D-AAD7-43A3136AA7F9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

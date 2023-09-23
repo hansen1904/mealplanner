@@ -1,4 +1,6 @@
 
+using mealplanner.Application;
+
 namespace mealplanner.WebApi
 {
     public class Program
@@ -7,11 +9,48 @@ namespace mealplanner.WebApi
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
+            //Other layers
+            IServiceCollection service = builder.Services;
 
-            builder.Services.AddControllersWithViews();
+            service.AddApplicationServices();
+
+            builder.Logging.AddConsole();
+            
+            service.AddControllersWithViews();
+
+            // Add services to the container.
+            service.AddApiVersioning(opt =>
+            {
+                opt.DefaultApiVersion = new Microsoft.AspNetCore.Mvc.ApiVersion(1, 0);
+                opt.AssumeDefaultVersionWhenUnspecified = true;
+                opt.ReportApiVersions = true;
+            });
+
+            //Add version exploration.
+            service.AddEndpointsApiExplorer();
+            service.AddVersionedApiExplorer(setup =>
+            {
+                setup.GroupNameFormat = "'v'VVV";
+                setup.SubstituteApiVersionInUrl = true;
+            });
+
+            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+            service.AddEndpointsApiExplorer();
+            service.AddSwaggerGen(c =>
+            {
+                c.EnableAnnotations();
+            });
 
             var app = builder.Build();
+
+            
+
+            // Configure the HTTP request pipeline.
+            if (app.Environment.IsDevelopment())
+            {
+                app.UseSwagger();
+                app.UseSwaggerUI();
+            }
 
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())

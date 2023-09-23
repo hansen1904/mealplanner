@@ -1,5 +1,5 @@
 ﻿using FluentValidation;
-using mealplanner.Domain.ValueObjects;
+using mealplanner.Domain.Entities;
 
 namespace mealplanner.Domain.Validators
 {

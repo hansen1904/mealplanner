@@ -1,0 +1,15 @@
+C:\Users\hanse\source\repos\mealplanner\mealplanner.Application\bin\Debug\net7.0\mealplanner.Application.deps.json
+C:\Users\hanse\source\repos\mealplanner\mealplanner.Application\bin\Debug\net7.0\mealplanner.Application.dll
+C:\Users\hanse\source\repos\mealplanner\mealplanner.Application\bin\Debug\net7.0\mealplanner.Application.pdb
+C:\Users\hanse\source\repos\mealplanner\mealplanner.Application\bin\Debug\net7.0\mealplanner.Domain.dll
+C:\Users\hanse\source\repos\mealplanner\mealplanner.Application\bin\Debug\net7.0\mealplanner.Domain.pdb
+C:\Users\hanse\source\repos\mealplanner\mealplanner.Application\obj\Debug\net7.0\mealplanner.Application.csproj.AssemblyReference.cache
+C:\Users\hanse\source\repos\mealplanner\mealplanner.Application\obj\Debug\net7.0\mealplanner.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\hanse\source\repos\mealplanner\mealplanner.Application\obj\Debug\net7.0\mealplanner.Application.AssemblyInfoInputs.cache
+C:\Users\hanse\source\repos\mealplanner\mealplanner.Application\obj\Debug\net7.0\mealplanner.Application.AssemblyInfo.cs
+C:\Users\hanse\source\repos\mealplanner\mealplanner.Application\obj\Debug\net7.0\mealplanner.Application.csproj.CoreCompileInputs.cache
+C:\Users\hanse\source\repos\mealplanner\mealplanner.Application\obj\Debug\net7.0\mealplanner.Application.csproj.CopyComplete
+C:\Users\hanse\source\repos\mealplanner\mealplanner.Application\obj\Debug\net7.0\mealplanner.Application.dll
+C:\Users\hanse\source\repos\mealplanner\mealplanner.Application\obj\Debug\net7.0\refint\mealplanner.Application.dll
+C:\Users\hanse\source\repos\mealplanner\mealplanner.Application\obj\Debug\net7.0\mealplanner.Application.pdb
+C:\Users\hanse\source\repos\mealplanner\mealplanner.Application\obj\Debug\net7.0\ref\mealplanner.Application.dll
