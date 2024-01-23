@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace mealplanner.WebApi.Controllers
 {
+    //[Authorize]
     [ApiController]
     [Route("api/v{version:apiVersion}/[controller]")]
     [ApiVersion("1.0")]

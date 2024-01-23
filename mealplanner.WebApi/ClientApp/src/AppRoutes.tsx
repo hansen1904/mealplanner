@@ -1,6 +1,8 @@
-import { Counter } from "./components/Counter";
-import { FetchData } from "./components/FetchData";
-import { Home } from "./components/Home";
+import { Status } from "./pages/Status/status"
+import { Recipes } from "./pages/Recipes/recipes"
+import { Journey } from "./pages/Journey/journey"
+import { Profile } from "./pages/Profile/profile"
+
 import AccountBoxIcon from '@mui/icons-material/AccountBox'
 import BookIcon from '@mui/icons-material/Book';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
@@ -10,28 +12,28 @@ const AppRoutes = [
   {
     id: 0,
     icon: <AccountBoxIcon />,
-    element: <Home />,
+    element: <Profile />,
     label: 'Profile',
     path: '/profile',
   },
   {
     id: 1,
     icon: <BookIcon />,
-    element: <Counter />,
+    element: <Journey />,
     label: 'Journey',
     path: '/Journey',
   },
   {
     id: 2,
     icon: <MenuBookIcon />,
-    element: <FetchData />,
+    element: <Recipes />,
     label: 'Recipes',
     path: '/recipes',
   },
   {
     id: 3,
     icon: <QueryStatsIcon />,
-    element: <FetchData />,
+    element: <Status />,
     label: 'Status',
     path: '/status',
   },

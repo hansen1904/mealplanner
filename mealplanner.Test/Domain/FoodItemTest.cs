@@ -20,7 +20,7 @@ namespace mealplanner.Test.Domain
             //Arrange
             var name = _fixture.Create<string>();
             var brand = _fixture.Create<string>();
-            var category = _fixture.Create<Category>();
+            var category = _fixture.Create<FoodCategory>();
             var caloriePr100 = _fixture.Create<double>();
             var ProteinPr100 = _fixture.Create<double>();
             var CarbohydratesPr100 = _fixture.Create<double>();
@@ -29,7 +29,7 @@ namespace mealplanner.Test.Domain
             var model = FoodItem.Create(
                 name,
                 brand,
-                category,   
+                category,
                 caloriePr100,
                 ProteinPr100,
                 CarbohydratesPr100,
@@ -50,7 +50,7 @@ namespace mealplanner.Test.Domain
 
             var name = "";
             var brand = "";
-            var category = Category.None;
+            var category = FoodCategory.None;
             var caloriePr100 = -0;
             var ProteinPr100 = -0;
             var CarbohydratesPr100 = -0;

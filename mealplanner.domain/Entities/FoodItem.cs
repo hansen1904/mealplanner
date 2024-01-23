@@ -2,22 +2,24 @@
 using mealplanner.Domain.Base;
 using mealplanner.Domain.Enums;
 using mealplanner.Domain.Validators;
+using mealplanner.Domain.ValueObjects;
 
 namespace mealplanner.Domain.Entities
 {
-    public class FoodItem : AuditableEntity
+    public sealed class FoodItem : AuditableEntity
     {
         public string Name { get; private set; }
         public string Brand { get; private set; }
-        public Category Category { get; private set; }
+        public FoodCategory Category { get; private set; }
         public double CaloriePr100 { get; private set; }
         public double ProteinPr100 { get; private set; }
         public double CarbohydratesPr100 { get; private set; }
         public double FatPr100 { get; private set; }
 
         public double? FiberPr100 { get; private set; }
-        public double? SugerPr100 { get; private set; }
+        public double? SugarPr100 { get; private set; }
         public double? SaltPr100 { get; private set; }
+        public List<FoodItemAmount> FoodAmount { get; private set; } = new List<FoodItemAmount>();
 
         private FoodItem()
         { 
@@ -26,13 +28,13 @@ namespace mealplanner.Domain.Entities
         public static FoodItem Create(
             string name, 
             string brand,
-            Category category, 
+            FoodCategory category, 
             double caloriePr100, 
             double proteinPr100, 
             double carbohydratesPr100, 
             double fatPr100, 
             double? fiberPr100, 
-            double? sugerPr100, 
+            double? sugarPr100, 
             double? saltPr100)
         {
             var model = new FoodItem()
@@ -45,7 +47,7 @@ namespace mealplanner.Domain.Entities
                 CarbohydratesPr100 = carbohydratesPr100,
                 FatPr100 = fatPr100,
                 FiberPr100 = fiberPr100,
-                SugerPr100 = sugerPr100,
+                SugarPr100 = sugarPr100,
                 SaltPr100 = saltPr100,
             };
 
@@ -54,6 +56,53 @@ namespace mealplanner.Domain.Entities
             validator.ValidateAndThrow(model);
 
             return model;
+        }
+
+        public FoodItem Update(
+            double? caloriePr100, 
+            double? proteinPr100, 
+            double? carbohydratesPr100, 
+            double? fatPr100, 
+            double? fiberPr100,
+            double? sugarPr100, 
+            double? saltPr100)
+        {
+            if (caloriePr100 is not null)
+            {
+                this.CaloriePr100 = (double)caloriePr100;
+            }
+
+            if (proteinPr100 is not null)
+            {
+                this.ProteinPr100 = (double)proteinPr100;
+            }
+
+            if (carbohydratesPr100 is not null)
+            {
+                this.CarbohydratesPr100 = (double)carbohydratesPr100;
+            }
+
+            if (fatPr100 is not null)
+            {
+                this.FatPr100 = (double)fatPr100;
+            }
+
+            if (fiberPr100 is not null)
+            {
+                this.FiberPr100 = (double)fiberPr100;
+            }
+
+            if (sugarPr100 is not null)
+            {
+                this.SugarPr100 = (double)sugarPr100;
+            }
+
+            if (saltPr100 is not null)
+            {
+                this.SaltPr100 = (double)saltPr100;
+            }
+
+            return this;
         }
 
     }

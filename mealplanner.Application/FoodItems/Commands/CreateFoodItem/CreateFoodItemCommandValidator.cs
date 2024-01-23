@@ -2,7 +2,7 @@
 
 namespace mealplanner.Application.FoodItems.Commands.CreateFoodItem
 {
-    public class CreateFoodItemCommandValidator : AbstractValidator<CreateFoodItemCommand>
+    public sealed class CreateFoodItemCommandValidator : AbstractValidator<CreateFoodItemCommand>
     {
         public CreateFoodItemCommandValidator() 
         {

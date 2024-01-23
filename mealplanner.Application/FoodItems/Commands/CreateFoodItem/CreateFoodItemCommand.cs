@@ -1,10 +1,12 @@
-﻿using mealplanner.Domain.Enums;
+﻿using mealplanner.Application.Repository;
+using mealplanner.Domain.Entities;
+using mealplanner.Domain.Enums;
 using MediatR;
 using System.ComponentModel.DataAnnotations;
 
 namespace mealplanner.Application.FoodItems.Commands.CreateFoodItem
 {
-    public class CreateFoodItemCommand : IRequest<CreateFoodItemResponse>
+    public sealed record CreateFoodItemCommand : IRequest
     {
         [Required]
         public string Name { get; set; }
@@ -19,19 +21,46 @@ namespace mealplanner.Application.FoodItems.Commands.CreateFoodItem
         public double? SaltPr100 { get; set; }
     }
 
-    public class CreateFoodItemCommandEventHandler : IRequestHandler<CreateFoodItemCommand, CreateFoodItemResponse>
+    public sealed class CreateFoodItemCommandEventHandler : IRequestHandler<CreateFoodItemCommand>
     {
+        private IUnitOfWork _unitOfWork;
 
-        public CreateFoodItemCommandEventHandler()
+        public CreateFoodItemCommandEventHandler(IUnitOfWork unitOfWork)
         {
-
+            _unitOfWork = unitOfWork;
         }
 
-        public Task<CreateFoodItemResponse> Handle(CreateFoodItemCommand request, CancellationToken cancellationToken)
+        public Task Handle(CreateFoodItemCommand request, CancellationToken cancellationToken)
         {
-            var id = Guid.NewGuid();
+            FoodCategory category = FoodCategory.None;
+            try
+            {
+                category = (FoodCategory)request.Category;
+            }
+            catch (Exception)
+            {
 
-            return Task.FromResult(new CreateFoodItemResponse(id));
+                throw new Exception("Couldn't find given food category");
+            }
+            
+
+            var model = FoodItem.Create(
+                request.Name.ToLowerInvariant(),
+                request.Brand.ToLowerInvariant(),
+                category,
+                request.CaloriePr100,
+                request.ProteinPr100,
+                request.CarbohydratesPr100,
+                request.FatPr100,
+                request.FiberPr100,
+                request.SugarPr100,
+                request.SaltPr100
+                );
+
+            _unitOfWork.FoodItemRepo().Create(model);
+            _unitOfWork.Save();
+
+            return Task.CompletedTask;
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace mealplanner.Domain.Base
 {
-    public abstract class AuditableEntity : Entity
+    public class AuditableEntity : Entity
     {
         public DateTime Created { get; set; }
         public string? CreatedBy { get; set; }

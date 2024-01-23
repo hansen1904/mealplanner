@@ -1,37 +1,32 @@
-﻿using mealplanner.Application.FoodItems.Queries.GetFoodItemById;
-using mealplanner.Domain.Entities;
+﻿using mealplanner.Application.Repository;
 using mealplanner.Domain.Enums;
 using MediatR;
 
 namespace mealplanner.Application.FoodItems.Queries.GetFoodItemByCategory
 {
-    public class GetFoodItemByCategoryQuery : IRequest<RecievedFoodItemByCategoryDto>
+    public sealed record GetFoodItemByCategoryQuery : IRequest<ReceivedFoodItemByCategoryDto>
     {
-        public Category Category { get; set; }
+        public FoodCategory Category { get; set; }
+        public int Offset { get; set; }
+        public int Limit { get; set; }
     }
 
-    public class GetFoodProductByCategoryQueryHandler : IRequestHandler<GetFoodItemByCategoryQuery, RecievedFoodItemByCategoryDto>
+    public sealed class GetFoodProductByCategoryQueryHandler : IRequestHandler<GetFoodItemByCategoryQuery, ReceivedFoodItemByCategoryDto>
     {
-        public GetFoodProductByCategoryQueryHandler()
-        {
+        private readonly IUnitOfWork _unitOfWork;
 
+        public GetFoodProductByCategoryQueryHandler(IUnitOfWork unitOfWork)
+        {
+            _unitOfWork = unitOfWork;
         }
 
-        public Task<RecievedFoodItemByCategoryDto> Handle(GetFoodItemByCategoryQuery request, CancellationToken cancellationToken)
+        public Task<ReceivedFoodItemByCategoryDto> Handle(GetFoodItemByCategoryQuery request, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
-        }
+            var list = _unitOfWork.FoodItemRepo().GetAllByCategory(request.Category, request.Offset, request.Limit);
 
-        private static RecievedFoodItemByCategoryDto MapToDto(List<FoodItem> listOfFoodItems)
-        {
-            if (listOfFoodItems.Count == 0)
-            {
-                return new RecievedFoodItemByCategoryDto(new List<RecievedFoodItemDto>());
-            }
+            var response = ReceivedFoodItemByCategoryDto.Create(list);
 
-            var listOfFoodProductsDto = listOfFoodItems.Select(x => new RecievedFoodItemDto(x)).ToList();
-
-            return new RecievedFoodItemByCategoryDto(listOfFoodProductsDto);
+            return Task.FromResult(response);
         }
     }
 }

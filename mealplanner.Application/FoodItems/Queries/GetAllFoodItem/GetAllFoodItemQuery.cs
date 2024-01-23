@@ -1,36 +1,30 @@
-﻿using mealplanner.Application.Common.Errors;
-using mealplanner.Application.FoodItems.Queries.GetFoodItemById;
-using mealplanner.Domain.Entities;
+﻿using mealplanner.Application.Repository;
 using MediatR;
 
 namespace mealplanner.Application.FoodItems.Queries.GetAllFoodItem
 {
-    public class GetAllFoodItemQuery : IRequest<RecievedListOfAllFoodItemDto>
+    public sealed record GetAllFoodItemQuery : IRequest<ReceivedListOfAllFoodItemDto>
     {
+        public int Offset { get; set; }
+        public int Limit { get; set; }
     }
 
-    public class GetAllFoodProductQueryHandler : IRequestHandler<GetAllFoodItemQuery, RecievedListOfAllFoodItemDto>
+    public sealed class GetAllFoodProductQueryHandler : IRequestHandler<GetAllFoodItemQuery, ReceivedListOfAllFoodItemDto>
     {
-        public GetAllFoodProductQueryHandler()
-        {
+        private IUnitOfWork _unitOfWork;
 
+        public GetAllFoodProductQueryHandler(IUnitOfWork unitOfWork)
+        {
+            _unitOfWork = unitOfWork;
         }
 
-        public Task<RecievedListOfAllFoodItemDto> Handle(GetAllFoodItemQuery request, CancellationToken cancellationToken)
+        public Task<ReceivedListOfAllFoodItemDto> Handle(GetAllFoodItemQuery request, CancellationToken cancellationToken)
         {
-            throw Errors.FoodItem.NotFound;
-        }
+            var list = _unitOfWork.FoodItemRepo().GetAll(request.Offset, request.Limit);
 
-        private static RecievedListOfAllFoodItemDto MapToDto(List<FoodItem> listOfFoodItems)
-        {
-            if (listOfFoodItems.Count == 0)
-            {
-                return new RecievedListOfAllFoodItemDto(new List<RecievedFoodItemDto>());
-            }
+            var response = ReceivedListOfAllFoodItemDto.Create(list);
 
-            var listOfFoodProductsDto = listOfFoodItems.Select(x => new RecievedFoodItemDto(x)).ToList();
-            
-            return new RecievedListOfAllFoodItemDto(listOfFoodProductsDto);
+            return Task.FromResult(response);
         }
     }
 }

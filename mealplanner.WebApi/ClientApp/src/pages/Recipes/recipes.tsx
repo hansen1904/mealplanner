@@ -1,14 +1,15 @@
-import { FoodProductList } from '../../components/FoodProduct/FPList/FPList.styled';
-import FoodProductCreatePopup from '../../components/FoodProduct/FPCreatePopup/FPCreatePopup'
+import { RecipeList } from '../../components/Recipes/RecipeList/RecipeList.styled';
+import { Component } from 'react';
 
-const Recipes = () => { 
+export class Recipes extends Component {
+  static displayName = Recipes.name;
+
+  render() {
     return (
-       <div>
+        <div>
             <p>This is Recipes page</p>
-            <FoodProductList />
-            <FoodProductCreatePopup />
+            <RecipeList/>
        </div>
     );
-};
-
-export default Recipes
+  }
+}

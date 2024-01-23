@@ -1,11 +1,13 @@
+import { Component } from "react";
 
-
-const Journey = () => { 
-    return (
-       <div>
+export class Journey extends Component {
+    static displayName = Journey.name;
+  
+    render() {
+      return (
+        <div>
             <p>This is Journey page</p>
-       </div>
-    );
-};
-
-export default Journey
+        </div>
+      );
+    }
+  }

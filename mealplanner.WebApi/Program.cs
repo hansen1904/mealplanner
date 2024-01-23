@@ -1,75 +1,85 @@
 using mealplanner.Application;
+using mealplanner.WebApi.Configuration;
+using mealplanner.WebApi.Extensions;
 
-namespace mealplanner.WebApi
+namespace mealplanner.WebApi;
+
+public class Program
 {
-    public class Program
+    public static void Main(string[] args)
     {
-        public static void Main(string[] args)
+        var builder = WebApplication.CreateBuilder(args);
+
+        IServiceCollection service = builder.Services;
+
+        var configuration = builder.Configuration;
+
+        configuration
+            .AddJsonFile("appsettings.json")
+            .AddJsonFile("appsettings.development.json")
+            .AddJsonFile("appsettings.local.json")
+            .AddEnvironmentVariables();
+
+        builder.Logging.AddConsole();
+
+        builder.Services.AddCors(options =>
         {
-            var builder = WebApplication.CreateBuilder(args);
-
-            //Other layers
-            IServiceCollection service = builder.Services;
-
-            service.AddApplicationServices();
-
-            builder.Logging.AddConsole();
-            
-            service.AddControllersWithViews();
-
-            // Add services to the container.
-            service.AddApiVersioning(opt =>
+            options.AddDefaultPolicy(
+            policy =>
             {
-                opt.DefaultApiVersion = new Microsoft.AspNetCore.Mvc.ApiVersion(1, 0);
-                opt.AssumeDefaultVersionWhenUnspecified = true;
-                opt.ReportApiVersions = true;
+                policy.WithOrigins("https://localhost:44413");
+                policy.AllowAnyHeader();
+                policy.AllowAnyMethod();
             });
 
-            //Add version exploration.
-            service.AddEndpointsApiExplorer();
-            service.AddVersionedApiExplorer(setup =>
-            {
-                setup.GroupNameFormat = "'v'VVV";
-                setup.SubstituteApiVersionInUrl = true;
-            });
+        });
 
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-            service.AddEndpointsApiExplorer();
-            service.AddSwaggerGen(c =>
-            {
-                c.EnableAnnotations();
-            });
+        //Configure Database connection.
+        service.AddEntityFramework(configuration);
 
-            var app = builder.Build();
+        service.AddControllersWithViews();
 
-            
+        service.AddApiVersion();
 
-            // Configure the HTTP request pipeline.
-            if (app.Environment.IsDevelopment())
-            {
-                app.UseSwagger();
-                app.UseSwaggerUI();
-            }
+        // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+        service.AddEndpointsApiExplorer();
+        service.AddSwaggerGen(c =>
+        {
+            c.EnableAnnotations();
+        });
 
-            // Configure the HTTP request pipeline.
-            if (!app.Environment.IsDevelopment())
-            {
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-                app.UseHsts();
-            }
+        service.AddInfrastructureServices();
+        service.AddApplicationServices();
 
-            app.UseHttpsRedirection();
-            app.UseStaticFiles();
-            app.UseRouting();
-            app.UseExceptionHandler("/error");
+        //service.AddAuth(builder.Configuration);
 
-            app.MapControllerRoute(
-                name: "default",
-                pattern: "{controller}/{action=Index}/{id?}");
+        var app = builder.Build();
 
-            app.MapFallbackToFile("index.html");
-
-            app.Run();
+        // Configure the HTTP request pipeline.
+        if (app.Environment.IsDevelopment())
+        {
+            app.UseSwagger();
+            app.UseSwaggerUI();
         }
+
+        app.UseStaticFiles();
+        app.UseRouting();
+
+        app.UseCors();
+
+        app.UseExceptionHandler("/error");
+
+        app.UseAuthentication();
+        app.UseAuthorization();
+
+        app.UseHttpsRedirection();
+
+        app.MapControllerRoute(
+            name: "default",
+            pattern: "{controller}/{action=Index}/{id?}");
+
+        app.MapFallbackToFile("index.html");
+
+        app.Run();
     }
 }

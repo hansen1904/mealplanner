@@ -1,10 +1,13 @@
+import { Component } from 'react';
 
-const Status = () => { 
+export class Status extends Component {
+  static displayName = Status.name;
+
+  render() {
     return (
-       <div>
+        <div>
             <p>This is Status page.</p>
-       </div>
+        </div>
     );
-};
-
-export default Status
+  }
+}
