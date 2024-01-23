@@ -1,1 +1,16 @@
-mealplanner.domain/obj/Debug/net7.0/mealplanner.Domain.GeneratedMSBuildEditorConfig.editorconfig
+mealplanner.domain/obj/*
+mealplanner.Application/obj/*
+mealplanner.Test/obj/*
+mealplanner.WebApi/obj/*
+Infrastructure/obj/*
+
+mealplanner.domain/bin/*
+mealplanner.Application/bin/*
+mealplanner.Test/bin/*
+mealplanner.WebApi/bin/*
+Infrastructure/bin/*
+
+
+.vscode/*
+/.vs
+/mealplanner.Infrastructure/obj
